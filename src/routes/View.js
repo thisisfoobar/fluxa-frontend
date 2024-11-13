@@ -17,10 +17,10 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
     if (code && !tokenExchanged && !refreshToken && !tokenExchangeAttempted.current) {
       tokenExchangeAttempted.current = true;
       try {
-        const response = await axios.get(`${SERVER_URL}/auth/strava?code=${code}`);
+        // const response = await axios.get(`${SERVER_URL}/auth/strava?code=${code}`);
         
   
-        localStorage.setItem("strava_token", response.data.access_token);
+        localStorage.setItem("strava_token", code);
         setRefreshToken(response.data.access_token);
         setTokenExchanged(true);
 
