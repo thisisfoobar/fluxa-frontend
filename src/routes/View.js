@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from 'reactstrap';
-import axios from 'axios';
 import '../App.css';
 
 const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged }) => {
@@ -11,15 +10,12 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
   const [urlParams] = useSearchParams();
   const code = urlParams.get("code");
   const tokenExchangeAttempted = useRef(false);
-  const [loading, setLoading] = useState(true);
-
   const handleTokenExchange = async () => {
     if (code && !tokenExchanged && !refreshToken && !tokenExchangeAttempted.current) {
       tokenExchangeAttempted.current = true;
       try {
         // const response = await axios.get(`${SERVER_URL}/auth/strava?code=${code}`);
-        
-  
+
         localStorage.setItem("strava_token", code);
         setRefreshToken(code);
         setTokenExchanged(true);
@@ -30,14 +26,11 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
         console.error("Error during token exchange:", error);
       }
     }
-    setLoading(false);
   };
 
   useEffect(() => {
     if (code && !tokenExchanged && !refreshToken) {
       handleTokenExchange();
-    } else {
-      setLoading(false);
     }
   }, [code, tokenExchanged, refreshToken]);
 
@@ -46,10 +39,6 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
     setRefreshToken(null);
     navigate("/");
   };
-
-  if (loading) {
-    return <div><h1>Loading...</h1></div>;
-  }
 
   return (
     <div className="View">

@@ -14,7 +14,7 @@ const App = () => {
       <Router>
         <NavBar />
         <Container fluid className='App'>
-          <AppRoutes 
+          <AppRoutes
             refreshToken={refreshToken} 
             setRefreshToken={setRefreshToken} 
             tokenExchanged={tokenExchanged} 

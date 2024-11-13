@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <Navbar color="dark" dark expand="md" className="NavBar">
       <NavbarToggler onClick={toggle} />
-      <Collapse isOpen={isOpen} navbar>
+      <Collapse isOpen={isOpen} navbar data-testid="navbar-collapse">
         <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink tag={Link} to="/">Home</NavLink>
