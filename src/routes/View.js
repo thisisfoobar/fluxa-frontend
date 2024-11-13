@@ -21,7 +21,7 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
         
   
         localStorage.setItem("strava_token", code);
-        setRefreshToken(response.data.access_token);
+        setRefreshToken(code);
         setTokenExchanged(true);
 
         // Clear URL parameters after successful token exchange
