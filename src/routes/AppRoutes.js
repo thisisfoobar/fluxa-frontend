@@ -9,6 +9,7 @@ const AppRoutes = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExch
       <Routes>
         <Route path='/' element={<Authentication refreshToken={refreshToken} setRefreshToken={setRefreshToken} />} />
         <Route path='/view' element={<View refreshToken={refreshToken} setRefreshToken={setRefreshToken} tokenExchanged={tokenExchanged} setTokenExchanged={setTokenExchanged} />} />
+        <Route path='/test' element={<h1>Test</h1>} />
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </>
