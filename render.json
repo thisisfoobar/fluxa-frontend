@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "type": "web",
+      "name": "silly-emoji-titles",
+      "env": "static",
+      "staticPublishPath": "build",
+      "buildCommand": "npm install && npm run build",
+      "startCommand": "npm start"
+    }
+  ]
+}
