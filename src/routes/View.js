@@ -10,6 +10,13 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
   const [urlParams] = useSearchParams();
   const code = urlParams.get("code");
   const tokenExchangeAttempted = useRef(false);
+  
+  useEffect(() => {
+    if (code === null) {
+      navigate("/");
+    }
+  }, [code, navigate]);
+
   const handleTokenExchange = async () => {
     if (code && !tokenExchanged && !refreshToken && !tokenExchangeAttempted.current) {
       tokenExchangeAttempted.current = true;
@@ -26,9 +33,6 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
         console.error("Error during token exchange:", error);
       }
     }
-    if (!code) {
-      navigate("/");
-    }
   };
 
   useEffect(() => {
@@ -36,6 +40,12 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
       handleTokenExchange();
     }
   }, [code, tokenExchanged, refreshToken]);
+
+  useEffect(() => {
+    if (tokenExchanged && refreshToken) {
+      navigate("/view", { replace: true });
+    }
+  }, [tokenExchanged, refreshToken, navigate]);
 
   const clearToken = () => {
     localStorage.removeItem("strava_token");
