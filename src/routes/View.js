@@ -26,6 +26,9 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
         console.error("Error during token exchange:", error);
       }
     }
+    if (!code) {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
