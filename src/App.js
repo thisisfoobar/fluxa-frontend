@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Container } from 'reactstrap';
 import AppRoutes from "./routes/AppRoutes";
 import NavBar from "./routes/NavBar";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "./routes/Navigation";
 import './App.css';
 
 const App = () => {
@@ -13,6 +13,7 @@ const App = () => {
   return (
     <div>
       <Router>
+        <Navigation />
         <NavBar />
         <Container fluid className='App'>
           <AppRoutes
