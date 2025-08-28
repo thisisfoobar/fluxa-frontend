@@ -1,5 +1,5 @@
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
+import { Button } from "../../../src/components/ui/button";
+import { Card } from "../../../src/components/ui/card";
 import { ExternalLink, LogOut, CheckCircle } from "lucide-react";
 
 export function ConnectedSection({ onLogout }) {
