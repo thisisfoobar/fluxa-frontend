@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Container } from 'reactstrap';
 import AppRoutes from "./routes/AppRoutes.jsx";
@@ -10,7 +10,7 @@ const App = () => {
   const [tokenExchanged, setTokenExchanged] = useState(false);
 
   return (
-    <div>
+    <div data-testid="app-root">
       <Router>
         <NavBar />
         <Container fluid className='App'>
