@@ -4,8 +4,8 @@ import '../App.css';
 
 const Authentication = () => {
   const handleAuth = () => {
-    const clientId = process.env.REACT_APP_STRAVA_CLIENT_ID;
-    const redirectUri = process.env.REACT_APP_STRAVA_REDIRECT_URI;
+    const clientId = process.env.VITE_STRAVA_CLIENT_ID;
+    const redirectUri = process.env.VITE_STRAVA_REDIRECT_URI;
     const authUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}/&scope=read_all,activity:write,activity:read_all&state=someRandomState`;
 
     window.location.href = authUrl;

@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import '../App.css';
 
 const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged }) => {
-  const SERVER_URL = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_PRODUCTION_SERVER_URL : process.env.REACT_APP_LOCAL_SERVER_URL;
+  const SERVER_URL = process.env.NODE_ENV === 'production' ? process.env.VITE_PRODUCTION_SERVER_URL : process.env.VITE_LOCAL_SERVER_URL;
 
   const navigate = useNavigate();
   const [urlParams] = useSearchParams();
