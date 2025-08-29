@@ -5,7 +5,7 @@ body, html {
 }
 
 .App {
-  background-image: url('../public/paul-earle-xJ2tjuUHD9M-unsplash.jpg');
+  background-image: url('/paul-earle-xJ2tjuUHD9M-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

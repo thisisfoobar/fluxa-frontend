@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Container } from 'reactstrap';
-import AppRoutes from "./routes/AppRoutes";
-import NavBar from "./routes/NavBar";
+import AppRoutes from "./routes/AppRoutes.jsx";
+import NavBar from "./routes/NavBar.jsx";
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
   const [tokenExchanged, setTokenExchanged] = useState(false);
 
   return (
-    <div>
+    <div data-testid="app-root">
       <Router>
         <NavBar />
         <Container fluid className='App'>
