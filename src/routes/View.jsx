@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from 'reactstrap';
-import '../App.css';
+// import '../App.css';
 
 const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged }) => {
   const SERVER_URL = import.meta.env.NODE_ENV === 'production' ? import.meta.env.VITE_PRODUCTION_SERVER_URL : import.meta.env.VITE_LOCAL_SERVER_URL;
