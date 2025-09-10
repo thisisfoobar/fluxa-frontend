@@ -8,6 +8,11 @@ import NavBar from "./routes/NavBar.jsx";
 const App = () => {
   const [refreshToken, setRefreshToken] = useState(localStorage.getItem('strava_token'));
   const [tokenExchanged, setTokenExchanged] = useState(false);
+  const logout = () => {
+    localStorage.removeItem("strava_token");
+    setRefreshToken(null);
+    navigate("/");
+  };
 
   return (
     <div data-testid="app-root">
@@ -19,6 +24,7 @@ const App = () => {
             setRefreshToken={setRefreshToken} 
             tokenExchanged={tokenExchanged} 
             setTokenExchanged={setTokenExchanged} 
+            logout={logout}
           />
         </Container>
       </Router>
