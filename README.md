@@ -27,3 +27,12 @@ Tests are written with Jest and located within the app 'filename'.test.js.  You 
 ## Tech stack
 
 This app was created with React, Node, JavaScript and Express.  I have also deployed the database onto Supabase.  I chose this as it's widely used and I wanted more exposure to using it.  To find the repository for my backend: [https://github.com/thisisfoobar/silly-emoji-titles-backend]
+
+## Deployment
+
+I have this app currently deployed on Render.  Since this is a Vite + React app I need to remove the .env.production file as I set these environement variables  directly in Render.  Below is a copy of what you need to have for your environment variables
+VITE_STRAVA_CLIENT_ID=YOUR_STRAVA_CLIENT_ID
+VITE_STRAVA_CLIENT_SECRET=YOUR_STRAVA_CLIENT_SECRET
+VITE_STRAVA_REDIRECT_URI=[http://localhost:3000/view/]
+VITE_LOCAL_SERVER_URL=[http://localhost:5000]
+VITE_PRODUCTION_SERVER_URL=[https://your-production-url.com]
