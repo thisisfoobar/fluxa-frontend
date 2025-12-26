@@ -5,7 +5,7 @@ import { Card } from "./ui/card.jsx";
 import { ExternalLink, LogOut, CheckCircle } from "lucide-react";
 
 const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged }) => {
-  const SERVER_URL = import.meta.env.NODE_ENV === 'production' ? import.meta.env.VITE_PRODUCTION_SERVER_URL : import.meta.env.VITE_LOCAL_SERVER_URL;
+  const SERVER_URL = import.meta.env.VITE_NODE_ENV === 'production' ? import.meta.env.VITE_PRODUCTION_SERVER_URL : import.meta.env.VITE_LOCAL_SERVER_URL;
 
   const navigate = useNavigate();
   const [urlParams] = useSearchParams();
@@ -13,10 +13,13 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
   const tokenExchangeAttempted = useRef(false);
   
   useEffect(() => {
-    if (code === null) {
+    // Only redirect to home if there is no OAuth `code` AND no stored token
+    // (i.e. the user isn't already connected). This prevents flashing back
+    // to the home page when `localStorage` already contains a Strava token.
+    if (code === null && !refreshToken && !tokenExchanged) {
       navigate("/");
     }
-  }, [code, navigate]);
+  }, [code, navigate, refreshToken, tokenExchanged]);
 
   const handleTokenExchange = async () => {
     if (code && !tokenExchanged && !refreshToken && !tokenExchangeAttempted.current) {
@@ -55,15 +58,7 @@ const View = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged
   };
 
   return (
-    <div className="View">
-      <p>You're set up, you don't need to do anything else. Log an activity and see the title update to a random silly emoji!</p>
-      <div>
-        <a href="https://www.strava.com" target="_blank" rel="noopener noreferrer">
-          <Button color="primary">Go to Strava</Button>
-        </a>
-        <Button color="secondary" onClick={clearToken} style={{ marginLeft: '10px' }}>Logout</Button>
-      </div>
-    </div>
+    <ConnectedSection onLogout={clearToken} />
   );
 };
 
@@ -76,6 +71,11 @@ export function ConnectedSection({ onLogout }) {
   const handleOpenStrava = () => {
     window.open('https://www.strava.com', '_blank');
   };
+
+  const handleDisconnectStrava = () => {
+    window.open('https://www.strava.com/settings/apps', '_blank');
+    onLogout();
+  }
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -161,11 +161,11 @@ export function ConnectedSection({ onLogout }) {
               </h3>
               
               <p className="text-white/80 mb-6">
-                Need to switch accounts or disconnect? You can safely logout and reconnect anytime
+                Need to disconnect your Strava account? Click below to disconnect safely.
               </p>
               
               <Button 
-                onClick={onLogout}
+                onClick={handleDisconnectStrava}
                 variant="outline"
                 className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white backdrop-blur px-6 py-3 font-semibold transition-all duration-300"
               >

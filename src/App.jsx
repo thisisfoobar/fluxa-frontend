@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div data-testid="app-root">
       <Router>
-        <NavBar />
+        <NavBar refreshToken={refreshToken} logout={logout} />
         <Container fluid className='App'>
           <AppRoutes
             refreshToken={refreshToken} 
