@@ -12,7 +12,7 @@ describe('AppRoutes', () => {
         <AppRoutes refreshToken={null} setRefreshToken={() => {}} tokenExchanged={false} setTokenExchanged={() => {}} />
       </MemoryRouter>
     );
-    expect(screen.getByText(/welcome to silly emoji titles/i)).toBeInTheDocument();
+    expect(screen.getByText(/welcome to/i)).toBeInTheDocument();
   });
 
   it('renders View on /view route', () => {

@@ -11,13 +11,11 @@ const App = () => {
   const logout = () => {
     localStorage.removeItem("strava_token");
     setRefreshToken(null);
-    navigate("/");
   };
 
   return (
     <div data-testid="app-root">
       <Router>
-        <Navigation />
         <NavBar />
         <Container fluid className='App'>
           <AppRoutes

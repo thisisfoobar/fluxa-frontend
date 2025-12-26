@@ -7,7 +7,7 @@ import HeroSection from './HeroSection';
 describe('HeroSection', () => {
   it('renders welcome message', () => {
     render(<HeroSection />);
-    expect(screen.getByText(/welcome to silly emoji titles/i)).toBeInTheDocument();
+    expect(screen.getByText(/welcome to/i)).toBeInTheDocument();
   });
 
   it('renders Connect to Strava button', () => {

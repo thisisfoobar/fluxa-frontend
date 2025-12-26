@@ -1,4 +1,5 @@
-import { Button } from "../components/ui/button";
+import React from "react";
+import { Button } from "../components/ui/button.jsx";
 
 export function Navigation({ isConnected, onLogout }) {
   return (
@@ -19,7 +20,7 @@ export function Navigation({ isConnected, onLogout }) {
                 Home
               </a>
               <a 
-                href="#" 
+                href="https://www.strava.com/" 
                 className="text-white/90 hover:text-white transition-colors duration-200 font-medium"
               >
                 Strava

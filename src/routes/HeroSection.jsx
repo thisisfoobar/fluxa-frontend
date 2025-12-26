@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "./ui/button.jsx";
 import { Card } from "./ui/card.jsx";
 
@@ -40,8 +41,7 @@ function HeroSection() {
             <span className="bg-gradient-to-r from-orange-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
               fluxa
             </span>
-          </h1>
-          
+          </h1>          
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             With this fun little app, you no longer will have boring titles. When you upload an activity it will change to a random{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-semibold">

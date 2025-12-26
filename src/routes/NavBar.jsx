@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "./ui/button.jsx";
 
 function NavBar({ refreshToken, logout }) {
@@ -20,7 +21,9 @@ function NavBar({ refreshToken, logout }) {
                 Home
               </a>
               <a 
-                href="#" 
+                href="https://www.strava.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/90 hover:text-white transition-colors duration-200 font-medium"
               >
                 Strava
