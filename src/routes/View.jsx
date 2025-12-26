@@ -161,7 +161,7 @@ export function ConnectedSection({ onLogout }) {
               </h3>
               
               <p className="text-white/80 mb-6">
-                Need to disconnect your Strava account? Click below to disconnect safely.
+                Need to disconnect your Strava account? Click below to Revoke Access
               </p>
               
               <Button 

@@ -3,11 +3,11 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import HeroSection from "./HeroSection";
 import View from "./View";
 
-const AppRoutes = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged, logout }) => {
+const AppRoutes = ({ refreshToken, setRefreshToken, tokenExchanged, setTokenExchanged, handleAuth, logout }) => {
   return (
     <>
       <Routes>
-        <Route path='/' element={<HeroSection refreshToken={refreshToken} setRefreshToken={setRefreshToken} logout={logout} />} />
+        <Route path='/' element={<HeroSection handleAuth={handleAuth} refreshToken={refreshToken} setRefreshToken={setRefreshToken} logout={logout} />} />
         <Route path='/view' element={<View refreshToken={refreshToken} setRefreshToken={setRefreshToken} tokenExchanged={tokenExchanged} setTokenExchanged={setTokenExchanged} />} />
         <Route path='*' element={<Navigate to='/' />} />
       </Routes>

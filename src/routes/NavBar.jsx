@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button.jsx";
 
-function NavBar({ refreshToken, logout }) {
+function NavBar({ handleAuth, refreshToken, logout }) {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md">
@@ -15,7 +15,7 @@ function NavBar({ refreshToken, logout }) {
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <a 
-                href="#" 
+                href="/" 
                 className="text-white/90 hover:text-white transition-colors duration-200 font-medium"
               >
                 Home
@@ -34,14 +34,15 @@ function NavBar({ refreshToken, logout }) {
             <Button 
               onClick={logout}
               variant="outline" 
-              className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white backdrop-blur"
+              className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white backdrop-blur cursor-pointer"
             >
               Logout
             </Button>
           ) : (
             <Button 
+              onClick={handleAuth}
               variant="outline" 
-              className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white backdrop-blur"
+              className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white backdrop-blur cursor-pointer"
             >
               Get Started
             </Button>

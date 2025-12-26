@@ -2,15 +2,15 @@ import React from "react";
 import { Button } from "./ui/button.jsx";
 import { Card } from "./ui/card.jsx";
 
-function HeroSection() {
+function HeroSection({ handleAuth }) {
 
-  const handleAuth = () => {
-    const clientId = import.meta.env.VITE_STRAVA_CLIENT_ID;
-    const redirectUri = import.meta.env.VITE_STRAVA_REDIRECT_URI;
-    const authUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=read_all,activity:write,activity:read_all&state=someRandomState`;
+  // const handleAuth = () => {
+  //   const clientId = import.meta.env.VITE_STRAVA_CLIENT_ID;
+  //   const redirectUri = import.meta.env.VITE_STRAVA_REDIRECT_URI;
+  //   const authUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=read_all,activity:write,activity:read_all&state=someRandomState`;
 
-    window.location.href = authUrl;
-  };
+  //   window.location.href = authUrl;
+  // };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
