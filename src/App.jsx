@@ -6,12 +6,12 @@ import NavBar from "./routes/NavBar.jsx";
 //import './App.css';
 
 const App = () => {
+
   const [refreshToken, setRefreshToken] = useState(localStorage.getItem('strava_token'));
   const [tokenExchanged, setTokenExchanged] = useState(false);
   const logout = () => {
     localStorage.removeItem("strava_token");
     setRefreshToken(null);
-    navigation("/");
   };
 
   const handleAuth = () => {

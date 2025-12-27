@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button.jsx";
 
 function NavBar({ handleAuth, refreshToken, logout }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md">
@@ -32,7 +39,7 @@ function NavBar({ handleAuth, refreshToken, logout }) {
           </div>
           {refreshToken ? (
             <Button 
-              onClick={logout}
+              onClick={handleLogout}
               variant="outline" 
               className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white backdrop-blur cursor-pointer"
             >
